@@ -146,3 +146,37 @@ Effect e(F_AQUA,B_GREEN);
 EffectPrint("Hello World\n",e);
 ```
 
+## Example Program
+```C++
+#include <iostream>
+#include "Printing.hpp"
+
+using namespace std;
+using namespace Output;
+
+int main()
+{
+	Effect e(F_AQUA,B_GREEN);
+	e.AddEffect(EFF_UNDERLINE);
+	EffectPrint("Output A\n",e);
+
+	e.RemoveEffect(EFF_UNDERLINE);
+	EffectPrint("Output B\n", e);
+
+	e.AddEffect(EFF_UNDERLINE);
+	EffectPrint("Output C\n", e);
+
+	e.SetColor(F_AQUA, B_YELLOW);
+	e.ResetEffect();
+	EffectPrint("Output D\n", e);
+
+	e.SetColor(F_AQUA,B_YELLOW);
+	e.ResetColor();
+	cout << e << "Output E" << DEFAULT << endl;
+
+	e.SetColor(F_AQUA, B_YELLOW);
+	e.AddEffect(EFF_UNDERLINE);
+	e.Reset();
+	cout << e << "Output F" << DEFAULT << endl;
+}
+```
